@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.wagnerandade.coollection.matcher.Matcher;
 import com.wagnerandade.coollection.matcher.custom.Contains;
 import com.wagnerandade.coollection.matcher.custom.Equals;
+import com.wagnerandade.coollection.matcher.custom.EqualsIgnoreCase;
 import com.wagnerandade.coollection.matcher.custom.GreaterThan;
 import com.wagnerandade.coollection.matcher.custom.IsNull;
 import com.wagnerandade.coollection.matcher.custom.LessThan;
@@ -20,23 +21,33 @@ public class Coollection {
 	public static Matcher eq(Object value) {
 		return new Equals(value);
 	}
-	
+
+	/**
+	 * Case Insensitive Equals.
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public static Matcher eqi(Object value) {
+		return new EqualsIgnoreCase(value);
+	}
+
 	public static Matcher contains(String value) {
 		return new Contains(value);
 	}
-	
+
 	public static Matcher not(Matcher matcher) {
 		return new Not(matcher);
 	}
-	
+
 	public static Matcher greaterThan(Number value) {
 		return new GreaterThan(value);
 	}
-	
+
 	public static Matcher lessThan(Number value) {
 		return new LessThan(value);
 	}
-	
+
 	public static Matcher isNull() {
 		return new IsNull();
 	}
