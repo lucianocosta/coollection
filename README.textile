@@ -41,9 +41,11 @@ from(animals).where("name", eq("Lion")).and("age", eq(2)).all();
 from(animals).where("name", eq("Dog")).or("age", eq(5)).all();
 </pre>
 
-*Addons in this fork*
+<hr />
 
-It doesn't matter anymore to Coollection if your filter is a method nor a public or private field. If it's there, you'll get it!
+*ADDONS IN THIS FORK*
+
+It doesn't matter anymore to Coollection if your filter is a method nor a public or private field. If it's actually there, you'll get it!
 
 <pre>
 // will try to match first for "public void name();"
