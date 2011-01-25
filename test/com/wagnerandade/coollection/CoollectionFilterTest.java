@@ -30,6 +30,10 @@ public class CoollectionFilterTest {
 		animals.add(new Animal("Bird", 2));
 		animals.add(new Animal("Cat", 3));
 		animals.add(new Animal(null, -200));
+
+		Animal jubim = new Animal("Jubim", 80);
+		jubim.setColor("black");
+		animals.add(jubim);
 	}
 
 	@Test
@@ -37,6 +41,17 @@ public class CoollectionFilterTest {
 		List<Animal> filtered = from(animals).where("name", eq("Cat")).all();
 		assertThat(filtered.size(), is(2));
 		assertThat(filtered.get(0).name(), is("Cat"));
+	}
+
+	@Test
+	public void should_be_possible_create_a_filter_in_a_collection_of_default_javabeans() {
+		List<Animal> filtered = from(animals).where("getColor", eq("black")).all();
+		assertThat(filtered.size(), is(1));
+		assertThat(filtered.get(0).name(), is("Jubim"));
+
+		List<Animal> filtered2 = from(animals).where("color", eq("black")).all();
+		assertThat(filtered2.size(), is(1));
+		assertThat(filtered2.get(0).name(), is("Jubim"));
 	}
 
 	@Test
@@ -71,7 +86,7 @@ public class CoollectionFilterTest {
 	@Test
 	public void should_be_possible_use_contains_matcher() {
 		List<Animal> result = from(animals).where("name", contains("i")).all();
-		assertThat(result.size(), is(2));
+		assertThat(result.size(), is(3));
 		assertThat(result.get(0).name(), is("Lion"));
 		assertThat(result.get(1).name(), is("Bird"));
 	}
@@ -86,7 +101,7 @@ public class CoollectionFilterTest {
 	@Test
 	public void should_be_possible_to_take_greater_than() {
 		List<Animal> result = from(animals).where("age", greaterThan(3)).all();
-		assertThat(result.size(), is(3));
+		assertThat(result.size(), is(4));
 		assertThat(result.get(0).name(), is("Lion"));
 	}
 
