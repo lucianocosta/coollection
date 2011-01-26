@@ -12,7 +12,7 @@ public class EqualsIgnoreCase implements Matcher {
 
 	@Override
 	public boolean match(Object anotherValue) {
-		return (value).equalsIgnoreCase((String)anotherValue);
+		return value.equalsIgnoreCase((String)anotherValue);
 	}
 
 }

@@ -1,11 +1,12 @@
 package com.wagnerandade.coollection;
 
 public class Animal {
-	
+
 	private final String name;
 	private final Integer age;
 	private final boolean live;
 	private String scientificName;
+	private String color;
 
 	public Animal(String name, Integer age) {
 		this.name = name;
@@ -21,7 +22,7 @@ public class Animal {
 	public String name() {
 		return name;
 	}
-	
+
 	public int age() {
 		return age;
 	}
@@ -34,4 +35,12 @@ public class Animal {
 		return scientificName;
 	} 
 	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String c) {
+		this.color = c;
+	}
+
 }
