@@ -3,7 +3,6 @@
 	
 	<path id="lib">
         <fileset dir="lib" includes="**/*.jar"/>
-		<fileset dir="artifacts/main" includes="**/*.jar"/>
     </path>
 	
 	<path id="test">
